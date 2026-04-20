@@ -133,6 +133,12 @@ a.card:hover {
     color: var(--text-muted);
 }
 
+.read-time {
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    font-style: italic;
+}
+
 .card h3 {
     font-size: 1rem;
     font-weight: normal;
