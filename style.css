@@ -237,13 +237,13 @@ footer a:hover {
 }
 
 .post-body h2 {
-    font-family: Arial, sans-serif;
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
+    font-family: 'Georgia', serif;
+    font-size: 1.25rem;
+    font-weight: normal;
+    letter-spacing: 0;
+    text-transform: none;
     color: var(--accent);
-    margin: 2.75rem 0 1.1rem;
+    margin: 2.75rem 0 1rem;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--border);
 }
