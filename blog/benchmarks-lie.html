@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benchmarks Lie — Blessing Ngozi Uzor</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <header class="post-header">
+        <div class="container">
+            <a href="../index.html" class="back-link">&larr; Back to Perspectives</a>
+            <h1>Benchmarks Lie</h1>
+            <p class="subtitle">What evaluation frameworks miss about non-Western cultures.</p>
+        </div>
+    </header>
+
+    <article class="post-body">
+
+        <h2>What Benchmarks Claim to Measure, and What They Actually Do</h2>
+
+        <p>To understand the problem, it helps to start with what benchmarks are <em>supposed</em> to do.</p>
+
+        <p>A benchmark is a standardised test for a model. It provides a dataset with predefined answers, runs the model against it, and produces a score. That score is meant to represent performance on a specific capability: reasoning, factual recall, reading comprehension, translation, or even cultural understanding.</p>
+
+        <p>In principle, benchmarks serve three functions.</p>
+
+        <p>First, <strong>measurement</strong>. They quantify how well a model performs on a defined task.</p>
+
+        <p>Second, <strong>comparison</strong>. They allow models to be ranked against one another on the same scale.</p>
+
+        <p>Third, <strong>progress tracking</strong>. They provide a way to observe whether performance on a task improves over time.</p>
+
+        <p>This structure is useful. It gives the field a shared language for evaluation.</p>
+
+        <p>I used to accept that framing without much resistance. It is clean, intuitive, and widely repeated. But the more closely one looks at how benchmarks are constructed, and how their results are used, the harder it becomes to treat them as neutral instruments.</p>
+
+        <p>In practice, benchmarks do something narrower, and more consequential, than this description suggests.</p>
+
+        <h2>They Measure Proxies, Not Capabilities</h2>
+
+        <p>Benchmarks do not measure capabilities directly. They measure performance on a specific <em>form</em> of a task.</p>
+
+        <p>A multiple-choice benchmark, for example, does not measure "knowledge" in the abstract. It measures the ability to select correct answers within a constrained format, often shaped by particular educational or linguistic conventions.</p>
+
+        <p>This seems obvious once stated, but it is easy to overlook when looking at a single number on a leaderboard. I did not fully appreciate how large this gap could be until I started comparing what models get "right" in evaluation settings with how they respond in less structured contexts.</p>
+
+        <p>The distinction matters. The further the benchmark format is from real-world use, the wider the gap between score and actual capability.</p>
+
+        <p>That gap is where many failures sit.</p>
+
+        <h2>They Define What Counts as Progress</h2>
+
+        <p>Benchmarks do not just measure the field. They guide it.</p>
+
+        <p>If a capability is benchmarked, it attracts attention, optimisation, and funding. If it is not benchmarked, it tends to be ignored.</p>
+
+        <p>In this sense, benchmarks function as filters. They decide which aspects of model behaviour are visible and which remain unexamined.</p>
+
+        <p>Once you start noticing this, it becomes difficult to unsee. Entire areas of model behaviour, especially those that are harder to standardise, receive far less attention. Not because they are unimportant, but because they are difficult to benchmark.</p>
+
+        <p>Progress, then, is not neutral. It is shaped by what has been made measurable.</p>
+
+        <h2>They Incentivise Optimisation Around the Test</h2>
+
+        <p>Once benchmarks produce rankings, they create competition. Leaderboards emerge. Performance differences become signals of advancement.</p>
+
+        <p>This creates a predictable dynamic. Models are trained to perform well on, or near, the benchmark distribution. Scores improve. But improvement on the benchmark does not always translate into broader capability.</p>
+
+        <p>Anyone who has spent time looking at benchmark results over time will recognise this pattern. The numbers move upward. The interpretation of what those numbers mean becomes less clear.</p>
+
+        <p>This is not necessarily manipulation. It is an expected response to how evaluation is structured.</p>
+
+        <p>But it does mean that rising scores can overstate real progress.</p>
+
+        <h2>They Confer Legitimacy</h2>
+
+        <p>Benchmark results do more than inform research. They justify claims.</p>
+
+        <p>Statements such as "state-of-the-art performance" rely on benchmark scores as evidence. These scores circulate beyond technical communities, into policy discussions, funding decisions, and public narratives about AI capability.</p>
+
+        <p>A benchmark, in this sense, is not only a measurement tool. It is a credential.</p>
+
+        <p>And like any credential, its authority depends on what it actually represents. A question that is not always examined closely enough.</p>
+
+        <h2>They Encode a Model of the User</h2>
+
+        <p>Every benchmark answers an implicit question: <em>good at what, for whom?</em></p>
+
+        <p>That answer is built into: the language of the dataset; the framing of questions; the definition of correctness; and the assumptions used by annotators.</p>
+
+        <p>These elements reflect particular cultural and linguistic contexts. Often, they assume a specific kind of user: typically educated, fluent in dominant languages, and familiar with certain norms of reasoning and communication.</p>
+
+        <p>These assumptions do not appear in the final score. But they shape what the score means.</p>
+
+        <p>It is only when models are used outside those assumed contexts that the limits become visible.</p>
+
+        <h2>The Core Problem</h2>
+
+        <p>This leads to a deeper issue.</p>
+
+        <p>Benchmarks are often treated as neutral instruments, as if they simply reveal underlying capability. In reality, they define a <em>specific version</em> of competence and measure performance within it.</p>
+
+        <p>When a model scores highly, it is tempting to generalise. The model is said to "reason well," "understand language," or "capture cultural knowledge."</p>
+
+        <p>But the claim is narrower than it appears.</p>
+
+        <p>What the score actually shows is that the model performs well within the particular assumptions, formats, and contexts encoded by the benchmark.</p>
+
+        <p>The problem is not that benchmarks fail to work. It is that their scope is often mistaken for universality.</p>
+
+        <p>And that mistake becomes most visible when models are used outside the contexts those benchmarks were built to represent.</p>
+
+        <h2>What This Means for Non-Western Cultures</h2>
+
+        <p>The limitations described above affect all evaluation. But they fall unevenly.</p>
+
+        <p>For communities whose languages, reasoning styles, and cultural contexts are well-represented in benchmark datasets, the gap between score and capability is real but often manageable. The benchmark was largely built around them. Its assumptions are close to their own.</p>
+
+        <p>For communities outside that centre, the gap is structural.</p>
+
+        <h2>The Dataset Problem</h2>
+
+        <p>Most major benchmarks are built from English-language sources. MMLU, HellaSwag, BIG-bench, and their descendants draw heavily from Western educational materials, web text, and annotator populations concentrated in North America and Europe.</p>
+
+        <p>This is not incidental. It reflects where AI research is funded, where data is abundant, and whose languages dominate the internet.</p>
+
+        <p>The result is that benchmark performance, across nearly every widely-cited evaluation, is measured on a distribution that systematically underrepresents most of the world's languages and cultural contexts.</p>
+
+        <p>A model can score highly on all of these benchmarks and still fail, in basic ways, for a speaker of Igbo, Yoruba, Wolof, or any of the hundreds of languages spoken across sub-Saharan Africa.</p>
+
+        <p>That failure is invisible in the headline number.</p>
+
+        <h2>What "Cultural Understanding" Benchmarks Actually Test</h2>
+
+        <p>In recent years, the field has produced benchmarks specifically targeting cultural knowledge. These are worth examining carefully.</p>
+
+        <p>Many of them work by translating existing questions into other languages, or by asking models about cultural practices, customs, and values across different regions. The intention is to measure cultural competence.</p>
+
+        <p>The construction, however, often remains Western in its assumptions.</p>
+
+        <p>Questions about "culture" are frequently framed through categories that reflect particular social science traditions. Correctness is defined by annotators who may not be embedded in the communities being assessed. Translation-based approaches carry source-language structure into the target, testing linguistic transfer as much as cultural knowledge.</p>
+
+        <p>The benchmark claims to measure cultural understanding. What it often measures is performance on a Western-constructed representation of non-Western culture.</p>
+
+        <p>These are not the same thing.</p>
+
+        <h2>The Annotator Problem</h2>
+
+        <p>Benchmark construction requires human judgement at every stage: what questions to ask, what counts as a correct answer, which responses are ambiguous.</p>
+
+        <p>When annotators are drawn from a narrow cultural and linguistic background, those judgements embed particular assumptions about meaning, inference, and relevance. This is not a failure of intention. It is a structural feature of how annotation works at scale.</p>
+
+        <p>For low-resource languages and cultures, the problem is compounded. There are fewer annotators. Community review is rarer. The gap between what is tested and what the community would actually recognise as meaningful performance is wider, and less likely to be caught.</p>
+
+        <p>I became alert to this working on evaluation for Igbo. Simple questions about what counts as an appropriate response, or how to frame a request, revealed assumptions in existing frameworks that had clearly not been tested against Igbo-speaking communities. The benchmarks were not wrong exactly. They were asking the wrong questions.</p>
+
+        <h2>The Visibility Problem</h2>
+
+        <p>Perhaps the most consequential effect is this: what benchmarks do not measure tends not to get fixed.</p>
+
+        <p>If a model performs poorly in Igbo, but there is no widely-used benchmark for Igbo, that failure does not appear in evaluation reports, does not attract researcher attention, and does not enter the competitive pressure that drives improvement.</p>
+
+        <p>The community bearing the failure has no lever.</p>
+
+        <p>This is not only a technical problem. It determines which communities benefit from progress and which do not. A model is declared state-of-the-art. Deployment follows. The populations for whom the model fails are not part of the record.</p>
+
+        <h2>What Better Evaluation Would Require</h2>
+
+        <p>This is not an argument against benchmarks. It is an argument for taking them seriously enough to ask harder questions.</p>
+
+        <p>Better evaluation for non-Western cultural contexts would require, at minimum: datasets constructed within communities, not merely translated into their languages; annotation processes that draw on people embedded in the cultural context being tested; definitions of correctness that reflect local norms of meaning and communication, not universal proxies; and visibility mechanisms that make failure in underrepresented contexts legible to the field.</p>
+
+        <p>None of this is technically out of reach. It is a question of priority.</p>
+
+        <p>At present, building a benchmark for a major Western language is a publishable contribution. Building one for a low-resource African language is a specialised undertaking that attracts limited mainstream attention. That asymmetry does not reflect the distribution of the world's people or languages.</p>
+
+        <p>It reflects whose capabilities the field has decided to measure.</p>
+
+        <h2>The Claim That Conceals</h2>
+
+        <p>There is a phrase that appears in model documentation, research papers, and press releases with striking regularity: <em>strong performance across diverse languages and cultures.</em></p>
+
+        <p>This claim is almost always backed by benchmark scores.</p>
+
+        <p>It is worth pausing on what those scores actually establish. In most cases, they show strong performance on a small set of high-resource languages and on cultural benchmarks constructed largely within Western frameworks. "Diverse" here means something narrower than it implies.</p>
+
+        <p>The claim is not false in the technical sense. But the gap between what it asserts and what it demonstrates is wide enough to matter.</p>
+
+        <p>When that claim is used to justify deployment across communities it was not tested against, the benchmark has done its work. The numbers have conferred legitimacy. The failure, when it comes, will not appear in the evaluation record.</p>
+
+        <h2>Conclusion</h2>
+
+        <p>Benchmarks are not neutral. They are arguments, built into data and scoring criteria, about what good performance looks like and for whom.</p>
+
+        <p>For most of the world, those arguments were written without them.</p>
+
+        <p>The field's evaluation infrastructure is not broken. It is working as designed, for the communities it was designed around.</p>
+
+        <p>Making it work for everyone else is not a technical afterthought. It is a foundational question about what AI progress is actually for.</p>
+
+        <p class="post-note">This piece draws on ongoing work in low-resource language evaluation and cultural AI assessment. The next essay in this series examines how governance frameworks inherit the same blind spots.</p>
+
+    </article>
+
+    <footer>
+        <div class="container">
+            <p>
+                Blessing Ngozi Uzor &nbsp;&middot;&nbsp;
+                <a href="https://github.com/Ngozi-uzor" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://linkedin.com/in/uzor-blessing-ngozi-2a97b01a7" target="_blank" rel="noopener">LinkedIn</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
