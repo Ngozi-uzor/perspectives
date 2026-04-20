@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code-Switching as a Superpower — Blessing Ngozi Uzor</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <header class="post-header">
+        <div class="container">
+            <a href="../index.html" class="back-link">&larr; Back to Perspectives</a>
+            <h1>Code-Switching as a Superpower</h1>
+            <p class="subtitle">Africa's problem, or the model's incapability?</p>
+        </div>
+    </header>
+
+    <article class="post-body">
+
+        <p>If you grew up in a multilingual African household, you already know what code-switching is. You just may not have called it that.</p>
+
+        <p>It is the ease with which a conversation shifts from English to Igbo mid-sentence, or from French to Wolof, without either speaker pausing to register a transition. It is the way a word in your mother tongue carries a meaning that no translation in the colonial language quite captures. It is how you signal warmth, precision, humour, or intimacy by choosing which language to pull from, and when.</p>
+
+        <p>Code-switching is not confusion. It is not a literacy deficit. It is one of the most cognitively sophisticated things a human being can do in language, and across much of Africa, it is simply how people talk.</p>
+
+        <p>AI models, for the most part, cannot handle it. And the way the field has responded to that failure is worth examining closely.</p>
+
+        <h2>What Code-Switching Actually Is</h2>
+
+        <p>Linguists define code-switching as the practice of alternating between two or more languages, or language varieties, within a single conversation or even a single sentence. It is common wherever communities live in contact with multiple languages, which is to say it is common almost everywhere outside the monolingual Western contexts that dominate AI research.</p>
+
+        <p>In Nigeria, a conversation might move between English, Pidgin, and Igbo in the space of three sentences. In Cameroon, French and English overlap with Camfranglais and dozens of local languages. In Senegal, French and Wolof are so intertwined that separating them can feel artificial.</p>
+
+        <p>This is not code-switching as an occasional quirk. It is the texture of everyday communication. It reflects the layered histories, identities, and social relations of communities that have always lived between languages.</p>
+
+        <p>Critically, code-switching is not random. Speakers choose, often unconsciously, which language carries which meaning best. A technical point made in English, a term of endearment switched to Igbo, a joke that only works in Pidgin. The switching is itself part of the meaning.</p>
+
+        <h2>How Models Fail</h2>
+
+        <p>Present-day language models are trained primarily on monolingual or cleanly parallel bilingual data. They perform well when input stays within one language. When it does not, performance drops, sometimes dramatically.</p>
+
+        <p>A user who writes "I was so tired, I just slept off" (Nigerian English) alongside phrases in Igbo is not making an error. They are communicating naturally. But the model may treat the Igbo segments as noise, fail to parse the Nigerian English idiom correctly, or produce a response that addresses only the English portions and ignores the rest.</p>
+
+        <p>The failure is not random. It is structural. Models trained on majority-language data have no robust representation of the code-switching patterns that characterise communication in multilingual African communities. The training distribution did not include them, so the model has no way to handle them gracefully.</p>
+
+        <h2>The Framing Problem</h2>
+
+        <p>Here is where the issue becomes something more than a technical limitation.</p>
+
+        <p>When a model fails to handle code-switching, the failure tends to be absorbed by the user. The implicit instruction is: speak in one language. Stick to English, or French, or whatever high-resource language the model handles well. Flatten your communication to fit the model's constraints.</p>
+
+        <p>This framing positions code-switching as the problem. The speaker is asked to adapt. The model is not.</p>
+
+        <p>That inversion matters. It places the burden of accommodation on precisely the communities the model is least equipped to serve, and treats a sophisticated linguistic practice as an inconvenience to be corrected.</p>
+
+        <p>It is not unlike asking a left-handed person to use their right hand because the tools were designed for one kind of user.</p>
+
+        <h2>A Superpower Reframed as a Deficit</h2>
+
+        <p>Code-switching is hard. It requires holding two or more full linguistic systems in mind simultaneously, navigating their grammar, register, and social meanings in real time. Children who grow up code-switching develop cognitive flexibility that monolingual peers do not. Researchers have linked multilingualism and regular code-switching to enhanced executive function, metalinguistic awareness, and the ability to shift between conceptual frameworks.</p>
+
+        <p>It is, in the most precise sense, a cognitive superpower.</p>
+
+        <p>Yet in the context of AI evaluation, it is invisible at best and treated as a problem at worst. Models are not benchmarked on their ability to handle code-switched input. Datasets do not systematically include it. Researchers do not report on it as a performance dimension.</p>
+
+        <p>The field has decided, by default, that this is not a capability worth measuring. Which means it is not a failure worth acknowledging when it goes wrong.</p>
+
+        <h2>Why This Matters Beyond Linguistics</h2>
+
+        <p>The stakes here are not only linguistic. They are practical.</p>
+
+        <p>As AI systems are deployed across Africa in healthcare, education, legal services, and agriculture, they will encounter users who communicate naturally in code-switched language. A health chatbot that fails to parse a Nigerian patient's description of their symptoms, because that description moves between English and Igbo, is not a minor UX problem. It is a safety problem.</p>
+
+        <p>A legal aid tool that loses meaning when a user switches registers mid-explanation does not serve that user. It serves a version of that user: cleaned up, monolingual, made legible to a system that was never designed with them in mind.</p>
+
+        <p>The question of whether models can handle code-switching is, in this sense, a question about whether those models can safely and accurately serve the populations they are being deployed among.</p>
+
+        <h2>Whose Responsibility Is It?</h2>
+
+        <p>The standard response to this problem tends to run in one of two directions. Either: code-switching is too complex and diverse to address at scale. Or: speakers should provide monolingual input when using AI systems.</p>
+
+        <p>Both responses are inadequate.</p>
+
+        <p>The first mistakes "difficult" for "impossible." There is growing research on code-switched NLP. Datasets for code-switched African languages exist, though they remain small and underresourced. The field has addressed harder problems when it chose to prioritise them. The issue is not intractability. It is priority.</p>
+
+        <p>The second response is simply a transfer of burden. It asks speakers to suppress a natural and sophisticated communicative practice in order to be legible to a model. That is not an AI serving its users. That is users serving the AI.</p>
+
+        <h2>What It Would Take</h2>
+
+        <p>Building models that handle code-switching well is not a single research problem. It is a cluster of them.</p>
+
+        <p>It requires code-switched training data, which means working with communities to produce it, not simply scraping monolingual web text and hoping for the best. It requires evaluation frameworks that test code-switched input alongside monolingual input, so that failures become visible in performance reports. It requires researchers embedded in multilingual African contexts, who understand the specific patterns and social logics of the code-switching they are trying to model.</p>
+
+        <p>None of this is beyond reach. All of it requires a choice about whose communication matters enough to invest in.</p>
+
+        <h2>Conclusion</h2>
+
+        <p>Code-switching is not Africa's problem. It is not a symptom of linguistic disorder or educational failure. It is what sophisticated multilingual communication looks like, and it is how hundreds of millions of people naturally express themselves every day.</p>
+
+        <p>The model's inability to handle it is a capability gap. Framing it as a user behaviour to be corrected is a way of avoiding that conclusion.</p>
+
+        <p>Until the field takes code-switched input seriously as a dimension of performance, the communities that live most fluently between languages will remain the communities most poorly served by AI systems that claim to work for everyone.</p>
+
+        <p>The superpower is real. The question is whether the tools will ever be built to meet it.</p>
+
+        <p class="post-note">This piece is part of the Perspectives essay series on AI governance, language, and what global AI development actually demands in practice.</p>
+
+    </article>
+
+    <footer>
+        <div class="container">
+            <p>
+                Blessing Ngozi Uzor &nbsp;&middot;&nbsp;
+                <a href="https://github.com/Ngozi-uzor" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://linkedin.com/in/uzor-blessing-ngozi-2a97b01a7" target="_blank" rel="noopener">LinkedIn</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
