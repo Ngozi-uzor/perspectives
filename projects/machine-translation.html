@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Translation for Lingala and Tigrinya — Blessing Ngozi Uzor</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .meta-chip {
+            background: var(--border);
+            color: var(--dark);
+            font-size: 0.78rem;
+            font-family: Arial, sans-serif;
+            padding: 0.3rem 0.75rem;
+            border-radius: 20px;
+            letter-spacing: 0.02em;
+        }
+
+        .meta-chip.accent {
+            background: var(--dark);
+            color: var(--cream);
+        }
+
+        .role-box {
+            border-left: 3px solid var(--accent);
+            padding: 1rem 1.25rem;
+            margin: 2rem 0;
+            background: rgba(139, 115, 85, 0.06);
+        }
+
+        .role-box p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        .role-box strong {
+            color: var(--accent);
+            font-family: Georgia, serif;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .lang-card {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1rem 1.1rem;
+        }
+
+        .lang-card.strong {
+            border-color: var(--accent);
+        }
+
+        .lang-card.weak {
+            border-color: #b55;
+        }
+
+        .lang-card h4 {
+            font-family: Georgia, serif;
+            font-size: 0.95rem;
+            color: var(--dark);
+            margin: 0 0 0.6rem 0;
+        }
+
+        .lang-card table {
+            width: 100%;
+            font-size: 0.82rem;
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+        }
+
+        .lang-card td {
+            padding: 0.2rem 0;
+            color: var(--text);
+        }
+
+        .lang-card td:first-child {
+            color: var(--accent);
+            font-weight: bold;
+            width: 40%;
+        }
+
+        .fit-label {
+            display: inline-block;
+            margin-top: 0.6rem;
+            font-size: 0.75rem;
+            font-family: Arial, sans-serif;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 0.2rem 0.6rem;
+            border-radius: 3px;
+        }
+
+        .fit-label.strong {
+            background: rgba(139, 115, 85, 0.15);
+            color: var(--accent);
+        }
+
+        .fit-label.weak {
+            background: rgba(180, 60, 60, 0.1);
+            color: #933;
+        }
+
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            font-size: 0.88rem;
+            margin: 1.5rem 0;
+        }
+
+        .results-table th {
+            background: var(--dark);
+            color: var(--cream);
+            padding: 0.6rem 0.9rem;
+            text-align: left;
+            font-weight: normal;
+            letter-spacing: 0.04em;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+        }
+
+        .results-table td {
+            padding: 0.65rem 0.9rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .results-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .results-table .highlight {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .finding-box {
+            background: var(--dark);
+            color: var(--cream);
+            border-radius: 6px;
+            padding: 1.25rem 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .finding-box p {
+            margin: 0;
+            font-family: Georgia, serif;
+            font-size: 1.05rem;
+            line-height: 1.65;
+        }
+
+        .finding-box span {
+            color: #c9b99a;
+            font-style: italic;
+        }
+
+        .slides-embed {
+            margin: 2.5rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .slides-embed embed {
+            width: 100%;
+            height: 520px;
+            display: block;
+        }
+
+        .btn-download {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.65rem 1.4rem;
+            background: var(--dark);
+            color: var(--cream);
+            font-family: Arial, sans-serif;
+            font-size: 0.82rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .btn-download:hover {
+            opacity: 0.85;
+        }
+
+        @media (max-width: 600px) {
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="post-header">
+        <div class="container">
+            <a href="../index.html" class="back-link">&larr; Back to Perspectives</a>
+            <h1>Machine Translation for Lingala and Tigrinya</h1>
+            <p class="subtitle">Fine-tuning mBART-50 on two low-resourced African language pairs using a fake language code strategy.</p>
+        </div>
+    </header>
+
+    <article class="post-body">
+
+        <div class="project-meta">
+            <span class="meta-chip accent">NLP</span>
+            <span class="meta-chip">Machine Translation</span>
+            <span class="meta-chip">mBART-50</span>
+            <span class="meta-chip">Low-Resource Languages</span>
+            <span class="meta-chip">AIMS Cameroon &middot; 2026</span>
+        </div>
+
+        <div class="role-box">
+            <p><strong>My role:</strong> Equal contributor, Group 6. This was a fully collaborative project. All six team members contributed equally to the work: motivation, data selection, model setup, training, evaluation, and analysis.</p>
+        </div>
+
+        <h2>The Problem</h2>
+
+        <p>Of the world's 7,000-plus living languages, fewer than 100 receive meaningful attention in NLP research. Africa alone has over 2,000 languages. Most are entirely absent from machine translation benchmarks.</p>
+
+        <p>Large multilingual models like mBART-50 have made low-resource translation more tractable, but only for the 50 languages they explicitly support. Lingala and Tigrinya are not among them. This project asked a direct question: can we get usable translation for these languages anyway, using what is already there?</p>
+
+        <h2>The Strategy: Fake Language Codes</h2>
+
+        <p>The MAFAND-MT project established a practical workaround. If a language has no native slot in a multilingual model, assign it the slot of a structurally similar language that the model does know. The model's encoder and decoder already understand that related language. The transfer happens by proximity.</p>
+
+        <p>We applied this strategy to two language pairs, which turned out to be a natural experiment. One pair was a good candidate for this approach. The other was not.</p>
+
+        <div class="two-col">
+            <div class="lang-card strong">
+                <h4>Lingala &rarr; French</h4>
+                <table>
+                    <tr><td>Family</td><td>Niger-Congo / Bantu</td></tr>
+                    <tr><td>Script</td><td>Latin</td></tr>
+                    <tr><td>Proxy slot</td><td>sw_KE (Swahili)</td></tr>
+                    <tr><td>Target</td><td>fr_XX (French)</td></tr>
+                </table>
+                <span class="fit-label strong">Strong fit: shared script and family</span>
+            </div>
+            <div class="lang-card weak">
+                <h4>Tigrinya &rarr; English</h4>
+                <table>
+                    <tr><td>Family</td><td>Afroasiatic</td></tr>
+                    <tr><td>Script</td><td>Ge'ez (Ethiopic)</td></tr>
+                    <tr><td>Proxy slot</td><td>sw_KE (Swahili)</td></tr>
+                    <tr><td>Target</td><td>en_XX (English)</td></tr>
+                </table>
+                <span class="fit-label weak">Weak fit: different script and family</span>
+            </div>
+        </div>
+
+        <p>Both pairs were trained on 4,000 parallel sentences from a 5,000-pair dataset (500 validation, 500 test). The model was mBART-50, a 610M-parameter encoder-decoder Transformer. Training ran for 5 epochs with a batch size of 8, learning rate 3 &times; 10<sup>&minus;5</sup>, fp16 mixed precision, and beam search (size 4) at inference.</p>
+
+        <h2>Results</h2>
+
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th>Language Pair</th>
+                    <th>BLEU &uarr;</th>
+                    <th>ChrF &uarr;</th>
+                    <th>TER &darr;</th>
+                    <th>METEOR &uarr;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Lingala &rarr; French</strong></td>
+                    <td class="highlight">15.09</td>
+                    <td class="highlight">35.42</td>
+                    <td>78.71</td>
+                    <td class="highlight">38.37</td>
+                </tr>
+                <tr>
+                    <td><strong>Tigrinya &rarr; English</strong></td>
+                    <td>3.52</td>
+                    <td>20.46</td>
+                    <td>99.11</td>
+                    <td>20.25</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Lingala–French reached BLEU 15.09, which is competitive with MAFAND-MT's Bantu baselines (Hausa–English: BLEU 16.0 on 3,098 pairs; we used 4,000). Short, high-frequency sentences translated well, with several exact matches at BLEU 100. The worst outputs showed hallucination: the model generated fluent French unrelated to the source entirely.</p>
+
+        <p>Tigrinya–English was a different story. BLEU 3.52, TER 99.11. A TER near 100 means the output requires nearly as many edits as the reference has tokens. That is near-random output. The model frequently failed to parse the Ge'ez script at all and fell back to generating plausible but disconnected English text.</p>
+
+        <h2>Why the Gap</h2>
+
+        <p>The contrast between the two pairs is the paper's central finding. Lingala succeeded because three conditions aligned: it shares a script with the proxy (Latin), it shares a language family with the proxy (both Bantu), and its target language (French) is heavily represented in mBART-50's pre-training. All three transfer vectors pointed in the right direction.</p>
+
+        <p>Tigrinya failed because none of those conditions held. Ge'ez script is nearly absent from mBART-50's vocabulary. Tigrinya is Afroasiatic; Swahili is Bantu. The proxy was wrong in every dimension that matters.</p>
+
+        <div class="finding-box">
+            <p>Fake code effectiveness scales with <span>script compatibility</span> and <span>linguistic proximity</span> between source and proxy. Proxy-language strategies are viable for linguistically related Bantu languages. Non-Latin scripts require byte-level modelling or dedicated vocabulary extension.</p>
+        </div>
+
+        <h2>Full Slides</h2>
+
+        <div class="slides-embed">
+            <embed src="machine-translation/machine-translation-slides.pdf" type="application/pdf">
+        </div>
+
+        <div style="text-align: center; margin-top: -1rem; margin-bottom: 2rem;">
+            <a href="machine-translation/machine-translation-slides.pdf" class="btn-download" target="_blank" rel="noopener">Download Full Slides &darr;</a>
+        </div>
+
+        <p class="post-note">Group 6, AIMS Cameroon &middot; NLP Course &middot; March 2026. Equal contribution: Tize Hermane, Michaud Carlos, I.O. Alabi, Blessing Ngozi Uzor, Malla Ndassi Marie Ange, Zacharie Hossana. Note: this project is ongoing; a full written paper is in preparation.</p>
+
+    </article>
+
+    <footer>
+        <div class="container">
+            <p>
+                Blessing Ngozi Uzor &nbsp;&middot;&nbsp;
+                <a href="https://github.com/Ngozi-uzor" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://linkedin.com/in/uzor-blessing-ngozi-2a97b01a7" target="_blank" rel="noopener">LinkedIn</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
