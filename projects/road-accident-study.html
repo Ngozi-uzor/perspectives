@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Type and Road Traffic Accident Risk in Cameroon — Blessing Ngozi Uzor</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .meta-chip {
+            background: var(--border);
+            color: var(--dark);
+            font-size: 0.78rem;
+            font-family: Arial, sans-serif;
+            padding: 0.3rem 0.75rem;
+            border-radius: 20px;
+            letter-spacing: 0.02em;
+        }
+
+        .meta-chip.accent {
+            background: var(--dark);
+            color: var(--cream);
+        }
+
+        .role-box {
+            border-left: 3px solid var(--accent);
+            padding: 1rem 1.25rem;
+            margin: 2rem 0;
+            background: rgba(139, 115, 85, 0.06);
+        }
+
+        .role-box p { margin: 0; font-size: 0.95rem; color: var(--text); }
+        .role-box strong { color: var(--accent); font-family: Georgia, serif; }
+
+        .protocol-note {
+            border: 1px solid var(--accent);
+            border-radius: 6px;
+            padding: 0.9rem 1.2rem;
+            margin: 1.5rem 0;
+            font-family: Arial, sans-serif;
+            font-size: 0.87rem;
+            color: var(--text);
+            background: rgba(139, 115, 85, 0.05);
+        }
+
+        .protocol-note strong { color: var(--accent); }
+
+        .job-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+        }
+
+        .job-card {
+            border-radius: 6px;
+            padding: 0.9rem 1rem;
+            text-align: center;
+        }
+
+        .job-card.high { background: #f5e8e8; border: 1px solid #d4a0a0; }
+        .job-card.med  { background: #f5f0e0; border: 1px solid #d4c07a; }
+        .job-card.low  { background: #e8f0e8; border: 1px solid #90b890; }
+
+        .job-card .job-level {
+            font-size: 0.68rem;
+            font-family: Arial, sans-serif;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 0.35rem;
+            font-weight: bold;
+        }
+
+        .job-card.high .job-level { color: #933; }
+        .job-card.med .job-level  { color: #7a6010; }
+        .job-card.low .job-level  { color: #2a6a2a; }
+
+        .job-card .job-examples {
+            font-size: 0.82rem;
+            font-family: Arial, sans-serif;
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        .design-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .design-card {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1rem 1.1rem;
+        }
+
+        .design-card h4 {
+            font-family: Arial, sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin: 0 0 0.6rem 0;
+        }
+
+        .design-card p {
+            font-size: 0.87rem;
+            margin: 0;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .bias-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .bias-list li {
+            border-left: 3px solid var(--border);
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.6rem;
+            font-family: Arial, sans-serif;
+            font-size: 0.87rem;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .bias-list li strong {
+            color: var(--dark);
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-box {
+            background: var(--dark);
+            color: var(--cream);
+            border-radius: 6px;
+            padding: 1.1rem;
+            text-align: center;
+        }
+
+        .stat-box .stat-number {
+            font-size: 1.8rem;
+            font-family: Georgia, serif;
+            display: block;
+            line-height: 1;
+        }
+
+        .stat-box .stat-label {
+            font-size: 0.7rem;
+            font-family: Arial, sans-serif;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            opacity: 0.72;
+            margin-top: 0.4rem;
+            display: block;
+        }
+
+        .slides-embed {
+            margin: 2.5rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .slides-embed embed { width: 100%; height: 520px; display: block; }
+
+        .btn-download {
+            display: inline-block;
+            padding: 0.65rem 1.4rem;
+            background: var(--dark);
+            color: var(--cream);
+            font-family: Arial, sans-serif;
+            font-size: 0.82rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .btn-download:hover { opacity: 0.85; }
+
+        @media (max-width: 600px) {
+            .job-grid, .stats-row { grid-template-columns: 1fr; }
+            .design-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="post-header">
+        <div class="container">
+            <a href="../index.html" class="back-link">&larr; Back to Perspectives</a>
+            <h1>Job Type and Road Traffic Accident Risk in Cameroon</h1>
+            <p class="subtitle">A case-control study protocol examining occupational risk of road injury and death.</p>
+        </div>
+    </header>
+
+    <article class="post-body">
+
+        <div class="project-meta">
+            <span class="meta-chip accent">Biostatistics</span>
+            <span class="meta-chip">Epidemiology</span>
+            <span class="meta-chip">Study Design</span>
+            <span class="meta-chip">Public Health</span>
+            <span class="meta-chip">AIMS Cameroon &middot; Mar 2026</span>
+        </div>
+
+        <div class="role-box">
+            <p><strong>My role:</strong> Equal contributor, Group 5. Fully collaborative project across all six team members: Daniels Nii, Jahu Pédespan, Marie Ange, Blessing Ngozi Uzor, Magdaline Njeri, Abia Eunice.</p>
+        </div>
+
+        <div class="protocol-note">
+            <strong>Note:</strong> This is a study protocol, not a completed study. We designed and justified the methodology. Data collection had not begun at the time of presentation.
+        </div>
+
+        <h2>The Research Question</h2>
+
+        <p>Road traffic accidents are a leading cause of death and disability in sub-Saharan Africa. In Cameroon, moto-taxi drivers, known locally as "bensikins," are everywhere. They are also among the most exposed workers on the road. But are some jobs genuinely riskier than others, and by how much?</p>
+
+        <p>The research question: <strong>Is type of job associated with the risk of being injured or killed in a road traffic accident in Cameroon?</strong></p>
+
+        <p>Answering it rigorously has a practical payoff. If specific occupations carry significantly higher odds of injury or death, road safety interventions can be targeted where they matter most rather than applied uniformly.</p>
+
+        <h2>Study Design: Why Case-Control</h2>
+
+        <p>Road traffic accidents are a rare outcome. That single fact shapes the study design. A cohort study would require following thousands of workers for years to observe enough events, which is too slow and too expensive. A cross-sectional study cannot establish which came first: the job or the accident. A randomised controlled trial is impossible because you cannot randomise people's occupations.</p>
+
+        <p>Case-control is the right design. Start with people who have already had an accident (cases) and compare them to people who have not (controls), then look back at what job each person held. It is efficient, feasible, and well-suited to rare outcomes.</p>
+
+        <div class="design-grid">
+            <div class="design-card">
+                <h4>Cases</h4>
+                <p>Working adults aged 18–65, resident in Cameroon, who were injured or killed in a road traffic accident. Identified via hospital records and police accident registers.</p>
+            </div>
+            <div class="design-card">
+                <h4>Controls</h4>
+                <p>Working adults aged 18–65, resident in Cameroon, with no history of road traffic accident. Matched 2:1 to cases on age and sex to control by design.</p>
+            </div>
+        </div>
+
+        <h2>Exposure: Job Type</h2>
+
+        <p>Jobs were categorised by road exposure into three tiers.</p>
+
+        <div class="job-grid">
+            <div class="job-card high">
+                <span class="job-level">High Risk</span>
+                <span class="job-examples">Drivers, moto-taxi operators, delivery workers</span>
+            </div>
+            <div class="job-card med">
+                <span class="job-level">Medium Risk</span>
+                <span class="job-examples">Traders, construction workers</span>
+            </div>
+            <div class="job-card low">
+                <span class="job-level">Low Risk</span>
+                <span class="job-examples">Office workers, teachers, nurses</span>
+            </div>
+        </div>
+
+        <p>Exposure information is collected via interview and verified against employer records where possible. Fatal cases cannot be interviewed directly; next-of-kin reports and official records are used instead.</p>
+
+        <h2>Sample Size</h2>
+
+        <div class="stats-row">
+            <div class="stat-box">
+                <span class="stat-number">169</span>
+                <span class="stat-label">Cases</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">338</span>
+                <span class="stat-label">Controls (1:2)</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">507</span>
+                <span class="stat-label">Total participants</span>
+            </div>
+        </div>
+
+        <p>Sample size was calculated using EpiTools assuming an expected odds ratio of 2.0, 80% power, and 95% confidence. A 1:2 case-to-control ratio was chosen to increase statistical power without proportionally increasing case recruitment burden.</p>
+
+        <h2>Confounders and Bias</h2>
+
+        <p>Five key confounders were identified: age, sex, alcohol use, urban versus rural residence, and vehicle access. Age and sex are addressed at the design stage through matching. Alcohol use, residence, and vehicle access are adjusted for in the regression model.</p>
+
+        <p>Three sources of bias were anticipated and addressed in the protocol.</p>
+
+        <ul class="bias-list">
+            <li>
+                <strong>Recall bias</strong>
+                Cases may remember their job situation differently because of the accident. Mitigation: verify job type with employer records where possible.
+            </li>
+            <li>
+                <strong>Selection bias</strong>
+                Hospital-recruited cases may miss mild accidents that did not reach hospital. Mitigation: supplement with police accident registers to capture a broader severity range.
+            </li>
+            <li>
+                <strong>Information bias</strong>
+                Fatal cases cannot be interviewed. Mitigation: use next-of-kin reports and official records for fatal cases.
+            </li>
+        </ul>
+
+        <h2>Statistical Analysis</h2>
+
+        <p>The primary analysis uses conditional logistic regression, which is the correct choice for matched case-control data. It estimates an adjusted odds ratio of road traffic accident by job type, controlling for alcohol use, residence, and vehicle access.</p>
+
+        <p>Two additional analyses are planned. A subgroup analysis runs the model separately for men and women to check whether the occupational risk pattern differs by sex. A sensitivity analysis re-runs the model excluding moto-taxi drivers specifically, since their high prevalence and extreme exposure could dominate the high-risk category and mask variation within it.</p>
+
+        <p>Missing data is handled pragmatically: complete case analysis if under 10% missing, multiple imputation if over 10%. Missingness is most likely in alcohol use and informal job records.</p>
+
+        <p>The study protocol was preregistered on the Open Science Framework before data collection to prevent p-hacking and selective reporting. Ethics approval is required from CNERSH, the Cameroonian national ethics committee. All interviews are conducted by trained interviewers with counselling referral available, given the traumatic nature of accident recall.</p>
+
+        <h2>Full Slides</h2>
+
+        <div class="slides-embed">
+            <embed src="road-accident-study/road-accident-study-slides.pdf" type="application/pdf">
+        </div>
+
+        <div style="text-align: center; margin-top: -1rem; margin-bottom: 2rem;">
+            <a href="road-accident-study/road-accident-study-slides.pdf" class="btn-download" target="_blank" rel="noopener">Download Full Slides &darr;</a>
+        </div>
+
+        <p class="post-note">Group 5, AIMS Cameroon &middot; Applications in Biostatistics &middot; March 2026. Equal contribution: Daniels Nii, Jahu Pédespan, Marie Ange, Blessing Ngozi Uzor, Magdaline Njeri, Abia Eunice. Study protocol; data collection pending.</p>
+
+    </article>
+
+    <footer>
+        <div class="container">
+            <p>
+                Blessing Ngozi Uzor &nbsp;&middot;&nbsp;
+                <a href="https://github.com/Ngozi-uzor" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://linkedin.com/in/uzor-blessing-ngozi-2a97b01a7" target="_blank" rel="noopener">LinkedIn</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
