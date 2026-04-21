@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On-Farm Fertilizer Trials in Niger — Blessing Ngozi Uzor</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .meta-chip {
+            background: var(--border);
+            color: var(--dark);
+            font-size: 0.78rem;
+            font-family: Arial, sans-serif;
+            padding: 0.3rem 0.75rem;
+            border-radius: 20px;
+            letter-spacing: 0.02em;
+        }
+
+        .meta-chip.accent {
+            background: var(--dark);
+            color: var(--cream);
+        }
+
+        .role-box {
+            border-left: 3px solid var(--accent);
+            padding: 1rem 1.25rem;
+            margin: 2rem 0;
+            background: rgba(139, 115, 85, 0.06);
+        }
+
+        .role-box p { margin: 0; font-size: 0.95rem; color: var(--text); }
+        .role-box strong { color: var(--accent); font-family: Georgia, serif; }
+
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            font-size: 0.87rem;
+            margin: 1.5rem 0;
+        }
+
+        .results-table th {
+            background: var(--dark);
+            color: var(--cream);
+            padding: 0.6rem 0.9rem;
+            text-align: left;
+            font-weight: normal;
+            font-size: 0.76rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .results-table td {
+            padding: 0.65rem 0.9rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .results-table tr:last-child td { border-bottom: none; }
+        .results-table .hl { color: var(--accent); font-weight: bold; }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-box {
+            background: var(--dark);
+            color: var(--cream);
+            border-radius: 6px;
+            padding: 1.1rem;
+            text-align: center;
+        }
+
+        .stat-box .stat-number {
+            font-size: 1.6rem;
+            font-family: Georgia, serif;
+            display: block;
+            line-height: 1;
+        }
+
+        .stat-box .stat-label {
+            font-size: 0.7rem;
+            font-family: Arial, sans-serif;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            opacity: 0.72;
+            margin-top: 0.4rem;
+            display: block;
+        }
+
+        .warning-box {
+            border: 1px solid #c8a96e;
+            background: rgba(200, 169, 110, 0.08);
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+            font-family: Arial, sans-serif;
+            font-size: 0.88rem;
+            color: var(--text);
+        }
+
+        .warning-box strong { color: #8a6a2a; }
+
+        .finding-box {
+            background: var(--dark);
+            color: var(--cream);
+            border-radius: 6px;
+            padding: 1.25rem 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .finding-box p { margin: 0; font-family: Georgia, serif; font-size: 1rem; line-height: 1.7; }
+        .finding-box span { color: #c9b99a; }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .rec-card {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1rem 1.1rem;
+        }
+
+        .rec-card h4 {
+            font-family: Arial, sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin: 0 0 0.6rem 0;
+        }
+
+        .rec-card p { font-size: 0.87rem; margin: 0; color: var(--text); line-height: 1.6; }
+
+        .slides-embed {
+            margin: 2.5rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .slides-embed embed { width: 100%; height: 520px; display: block; }
+
+        .btn-download {
+            display: inline-block;
+            padding: 0.65rem 1.4rem;
+            background: var(--dark);
+            color: var(--cream);
+            font-family: Arial, sans-serif;
+            font-size: 0.82rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .btn-download:hover { opacity: 0.85; }
+
+        @media (max-width: 600px) {
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+            .two-col { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="post-header">
+        <div class="container">
+            <a href="../index.html" class="back-link">&larr; Back to Perspectives</a>
+            <h1>On-Farm Fertilizer Trials in Niger</h1>
+            <p class="subtitle">Statistical analysis of FUMA Gaskiya trial data: which fertilizer improves yields most, and for whom?</p>
+        </div>
+    </header>
+
+    <article class="post-body">
+
+        <div class="project-meta">
+            <span class="meta-chip accent">Data Analysis</span>
+            <span class="meta-chip">Statistical Inference</span>
+            <span class="meta-chip">Regression</span>
+            <span class="meta-chip">Agriculture</span>
+            <span class="meta-chip">AIMS Cameroon &middot; Jan 2026</span>
+        </div>
+
+        <div class="role-box">
+            <p><strong>My role:</strong> Equal contributor, Group 2. The analysis was a fully collaborative effort across all ten team members.</p>
+        </div>
+
+        <h2>The Question</h2>
+
+        <p>Fertilizer choice is one of the most consequential decisions a smallholder farmer in the Sahel makes. The wrong choice wastes money. The right one can be the difference between a viable season and a failed one.</p>
+
+        <p>FUMA Gaskiya, an agricultural cooperative in Niger, collected on-farm trial data to test three fertilizers: Boule NPK, OGA, and Boule Cendre. Each treated plot was paired with a matching control plot on the same farm. We analysed 734 paired observations across 8 sites to answer: which fertilizer works best, and does the answer change depending on who is farming?</p>
+
+        <div class="warning-box">
+            <strong>Data challenge:</strong> 62.9% of fertilizer assignment records were missing. Only 260 complete yield pairs and 254 complete cases were available for primary analysis. We used complete case analysis with transparent reporting of all sample sizes, and verified that the paired design reduced bias from the missing data.
+        </div>
+
+        <h2>Overall Yield Picture</h2>
+
+        <div class="stats-row">
+            <div class="stat-box">
+                <span class="stat-number">309</span>
+                <span class="stat-label">Mean gain (kg/ha)</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">81.2%</span>
+                <span class="stat-label">Plots improved</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">66.9%</span>
+                <span class="stat-label">Gained &gt;100 kg/ha</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">50.1%</span>
+                <span class="stat-label">Mean % change</span>
+            </div>
+        </div>
+
+        <p>Across all fertilizer types, 81.2% of plots improved relative to their matched control. The distribution is right-skewed: most plots show moderate gains, but a minority showed exceptional improvement. High variability (IQR 71–450 kg/ha) is the central message. Fertilizers generally work. How well depends heavily on context.</p>
+
+        <h2>Q3: Do All Three Fertilizers Work?</h2>
+
+        <p>Paired t-tests against each plot's own control. All three are statistically significant with meaningful effect sizes.</p>
+
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th>Fertilizer</th>
+                    <th>n</th>
+                    <th>Mean (kg/ha)</th>
+                    <th>p-value</th>
+                    <th>Cohen's d</th>
+                    <th>Effect</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Boule Cendre</strong></td>
+                    <td>50</td>
+                    <td class="hl">391.9</td>
+                    <td>&lt;0.001</td>
+                    <td>0.62</td>
+                    <td>Medium</td>
+                </tr>
+                <tr>
+                    <td><strong>OGA</strong></td>
+                    <td>154</td>
+                    <td>289.4</td>
+                    <td>&lt;0.001</td>
+                    <td class="hl">0.89</td>
+                    <td>Large</td>
+                </tr>
+                <tr>
+                    <td><strong>Boule NPK</strong></td>
+                    <td>56</td>
+                    <td>288.7</td>
+                    <td>&lt;0.001</td>
+                    <td>0.53</td>
+                    <td>Medium</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>All three fertilizers significantly improve yields (p &lt; 0.001). Success rates range from 69.6% to 87.0% across plots. The surprising result: Boule Cendre leads on mean gain (391.9 kg/ha) but OGA has the largest effect size (Cohen's d = 0.89) and the highest success rate (87.0%) with the lowest variability (CV = 111.8% vs 161–190% for others). The two statistics point in different directions, and that tension matters for any practical recommendation.</p>
+
+        <h2>Context Matters: Gender and Farm Size</h2>
+
+        <p>The most striking finding in the dataset is not about fertilizer. It is about who is using it.</p>
+
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th>Group</th>
+                    <th>n</th>
+                    <th>Mean gain (kg/ha)</th>
+                    <th>Success rate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Male, small farm</td>
+                    <td>22</td>
+                    <td class="hl">748.6</td>
+                    <td>90.9%</td>
+                </tr>
+                <tr>
+                    <td>Female, large farm</td>
+                    <td>105</td>
+                    <td>309.1</td>
+                    <td>83.8%</td>
+                </tr>
+                <tr>
+                    <td>Male, large farm</td>
+                    <td>25</td>
+                    <td>271.2</td>
+                    <td>96.0%</td>
+                </tr>
+                <tr>
+                    <td>Female, small farm</td>
+                    <td>108</td>
+                    <td>228.0</td>
+                    <td>73.1%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Male farmers see 142% higher mean improvements than female farmers on small farms: 748.6 kg/ha versus 228.0 kg/ha, a gap of 520.6 kg/ha. The regression confirms this: gender is the single strongest predictor in the model, with males gaining +324.7 kg/ha on average after controlling for fertilizer type, farm size, and growing time (p &lt; 0.001).</p>
+
+        <p>This does not mean fertilizer works differently by biology. It almost certainly reflects differential access to inputs, complementary resources, extension services, and labour. The data cannot tell us which, but the gap is large enough that any practical recommendation has to take it into account.</p>
+
+        <h2>Regression Model</h2>
+
+        <p>Model 1 (main effects): R² = 11.86%, F = 6.68 (p &lt; 0.001). Gender is the only significant predictor. Fertilizer type and farm size are not significant after controlling for the other variables.</p>
+
+        <p>Model 2 adds interaction terms (Fertilizer &times; Farm Size, Fertilizer &times; Gender). R² rises to 18.46%, and a significant interaction emerges: Boule NPK &times; Male (&beta; = +571.8, p &lt; 0.001). For male farmers specifically, Boule NPK outperforms what the main effects alone would predict.</p>
+
+        <p>Model diagnostics flagged violated normality and heteroscedasticity. Confidence intervals should be interpreted with caution. The directional findings hold, but precise estimates carry uncertainty.</p>
+
+        <h2>Recommendations</h2>
+
+        <div class="two-col">
+            <div class="rec-card">
+                <h4>For most farmers</h4>
+                <p>OGA is the safest recommendation. Highest success rate (87%), most consistent performance, lowest variability. The lower mean gain is offset by reliability.</p>
+            </div>
+            <div class="rec-card">
+                <h4>For large male farms</h4>
+                <p>Boule Cendre has higher potential (391.9 kg/ha mean) and the Boule NPK &times; Male interaction suggests NPK is also worth considering where resources allow higher risk.</p>
+            </div>
+        </div>
+
+        <div class="finding-box">
+            <p>Fertilizer choice is not the only lever. A <span>520 kg/ha gender gap</span> in yield improvement suggests that closing resource and extension access disparities may matter more than switching between fertilizer types.</p>
+        </div>
+
+        <h2>Full Slides</h2>
+
+        <div class="slides-embed">
+            <embed src="fertilizer-trials/fertilizer-trials-slides.pdf" type="application/pdf">
+        </div>
+
+        <div style="text-align: center; margin-top: -1rem; margin-bottom: 2rem;">
+            <a href="fertilizer-trials/fertilizer-trials-slides.pdf" class="btn-download" target="_blank" rel="noopener">Download Full Slides &darr;</a>
+        </div>
+
+        <p class="post-note">Group 2, AIMS Cameroon &middot; Data Analysis Course &middot; January 2026. Equal contribution: Alfred Seesa, Ernest Katembo, Urich Brice, Bibiane Syriane, Gabas Mohammed, Blanche Mediffo, Daniels Nii, Evans Kiplagat, Genie Ricken, Blessing Ngozi Uzor. Data: FUMA Gaskiya on-farm trials, Niger.</p>
+
+    </article>
+
+    <footer>
+        <div class="container">
+            <p>
+                Blessing Ngozi Uzor &nbsp;&middot;&nbsp;
+                <a href="https://github.com/Ngozi-uzor" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://linkedin.com/in/uzor-blessing-ngozi-2a97b01a7" target="_blank" rel="noopener">LinkedIn</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
