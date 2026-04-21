@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Teaming from the Margins — Blessing Ngozi Uzor</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <header class="post-header">
+        <div class="container">
+            <a href="../index.html" class="back-link">&larr; Back to Perspectives</a>
+            <h1>Red Teaming from the Margins</h1>
+            <p class="subtitle">Why adversarial testing misses the harms that matter most outside the Western core.</p>
+        </div>
+    </header>
+
+    <article class="post-body">
+
+        <p>Before a frontier model is released, it is attacked.</p>
+
+        <p>Teams of researchers, contractors, and in-house staff spend weeks probing it. They try to make it produce instructions for weapons. They try to elicit harmful medical advice. They try to jailbreak it past its refusals. They try to make it defame real people, generate content involving minors, or produce text that could plausibly sway an election. The findings are catalogued, the weaknesses patched, and the model is judged safe enough to ship.</p>
+
+        <p>This is red teaming. It is one of the most important safety practices the field has developed, and it is quietly one of the most culturally constrained.</p>
+
+        <p>I want to take it seriously here, not dismiss it. Red teaming works. The question is: for whom?</p>
+
+        <h2>What Red Teaming Is, and Where It Came From</h2>
+
+        <p>The term is borrowed from military and cybersecurity practice. A red team plays the adversary, trying to break a system so that its defenders can strengthen it before the real attackers arrive.</p>
+
+        <p>In AI, the practice has taken on a specific shape. A group of people, sometimes employees, sometimes external contractors, sometimes a mix, sits with a model and tries to make it behave badly. They write adversarial prompts. They chain contexts. They impersonate users. They roleplay scenarios. They probe for the worst output the model can produce under pressure.</p>
+
+        <p>This work has produced real safety gains. Jailbreaks have been closed. Dangerous capabilities have been identified pre-deployment. Entire categories of harm have become visible because someone took the time to look for them.</p>
+
+        <p>None of that is in dispute here. The question is narrower, and more uncomfortable. It is about which harms the red team knows to look for in the first place.</p>
+
+        <h2>The Threat Model is a Cultural Document</h2>
+
+        <p>Every red team operates with an implicit threat model: a list, written or unwritten, of the bad things a model might do that matter enough to test for.</p>
+
+        <p>Read any published red teaming report from a major lab and the threat model becomes visible quickly. Bioweapons synthesis. Cyberattack assistance. Child sexual abuse material. Election interference, usually specified with reference to US or European political contexts. Self-harm content. Defamation of public figures, typically Western ones. Large-scale fraud.</p>
+
+        <p>These are serious harms. They deserve the attention they get.</p>
+
+        <p>But a threat model is not a neutral list. It is a cultural document. It reflects the anxieties, legal regimes, and political priorities of the people who wrote it. What counts as a catastrophic failure in San Francisco is not the same as what counts as a catastrophic failure in Kano or Kinshasa.</p>
+
+        <p>A model that confidently produces ethnic incitement in Hausa, in a region where such speech has contributed to mass violence within living memory, is doing something catastrophic. A model that generates plausible misinformation in Igbo about a local election, in a political environment where such rumours can trigger real harm in hours, is doing something catastrophic. A model that gives confident, wrong medical advice in Pidgin to a user who has nowhere else to turn is doing something catastrophic.</p>
+
+        <p>These failures do not appear in the red teaming reports I have read. Not because they are unimportant. Because the threat model did not know to include them.</p>
+
+        <h2>Who Is in the Room</h2>
+
+        <p>Red teams are usually small. That is part of their strength. A focused group can go deep, build intuition, share findings rapidly.</p>
+
+        <p>It is also part of the problem.</p>
+
+        <p>The people who sit on red teams at frontier labs are, overwhelmingly, people who live in the same cities, speak the same languages, and read the same news as the people who built the model. Many are hired precisely because they share the engineering team's vocabulary. That shared vocabulary makes collaboration efficient. It also narrows the range of harms the team can imagine.</p>
+
+        <p>You cannot red team a failure mode you have never encountered, in a language you do not speak, against a backdrop of social tensions you have never lived alongside. Not seriously. You can check a box. You can run a translated prompt through and note that the model responded. That is not the same as knowing what you are looking at.</p>
+
+        <p>The strongest red teamer for a given harm is usually someone close enough to that harm to recognise it when the model starts approaching it. In most current red teaming pipelines, the people with that kind of proximity to harms outside the Western core are simply not in the room.</p>
+
+        <h2>The Asymmetry of Defence</h2>
+
+        <p>One concrete consequence of this is worth naming plainly.</p>
+
+        <p>Frontier models are, as a rule, much better defended against attacks in English than against the same attacks in lower-resource languages. This has been shown empirically in the literature. A jailbreak that fails in English will often succeed when translated into Swahili, Zulu, or Yoruba. A harmful output that the model would refuse to produce when asked in French will sometimes emerge when the request is made in Wolof.</p>
+
+        <p>The reason is not mysterious. The safety training, the adversarial testing, and the refusal behaviour were all developed primarily in English. The coverage in other languages is thinner. The defences follow the data, and the data follows the red team.</p>
+
+        <p>What this produces is an asymmetry of defence. Users who interact with the model in high-resource languages are protected by layers of testing they never see. Users who interact in low-resource languages are exposed to a much thinner shield, often without knowing it.</p>
+
+        <p>A model that appears responsibly deployed globally is, in practice, responsibly deployed in some languages and inconsistently deployed in others. The failures accrue where the testing did not reach.</p>
+
+        <h2>The Problem of Translated Red Teaming</h2>
+
+        <p>There is a well-meaning response to all of this, and it is worth examining because it sounds reasonable and is not quite sufficient.</p>
+
+        <p>The response is: translate the red teaming prompts. Run the same adversarial tests in Hausa, in Amharic, in Tagalog. Broaden coverage by multiplying the dataset.</p>
+
+        <p>This helps. It is better than nothing. But it carries an assumption that does not survive close inspection: that the harms worth testing for are the same across contexts, and only the language changes.</p>
+
+        <p>The harms are not the same. A red teaming prompt designed around US election interference does not meaningfully probe a model's behaviour in Kenyan political discourse. The political structures, the legal definitions of incitement, the historically sensitive fault lines are different. Translating the prompt produces a sentence in Swahili. It does not produce a test of what can actually go wrong in that context.</p>
+
+        <p>Real red teaming for a context requires knowing the context. It requires knowing which historical references are radioactive, which phrases carry meanings the model may not represent, which combinations of topic and framing signal danger. That knowledge is not translatable. It has to be held by someone who carries it.</p>
+
+        <h2>What Gets Measured as a Win</h2>
+
+        <p>There is a further issue that sits underneath the technical one.</p>
+
+        <p>Red teaming, as currently structured, produces legitimacy as a by-product. A lab that can point to extensive red teaming of its model has an easier path through regulatory conversations, policy briefings, and public communication. "We red teamed this model for months" carries weight.</p>
+
+        <p>It carries weight even when the red teaming, in practice, tested a narrow slice of the deployment surface. The number of hours spent becomes a stand-in for comprehensiveness. The list of categories tested becomes a stand-in for coverage. The harms that fall outside the list do not enter the conversation, because there is no conversational slot for them.</p>
+
+        <p>This is the same pattern I noted in an earlier essay about benchmarks. The instrument confers legitimacy. The scope of the instrument is mistaken for the scope of the problem. The populations outside that scope are not absent from the report because they were considered and cleared. They are absent because the report was never structured to include them.</p>
+
+        <h2>What Better Red Teaming Would Look Like</h2>
+
+        <p>The argument here is not that red teams should try to cover every context on earth before any model ships. That is neither realistic nor what I am asking for.</p>
+
+        <p>The argument is that the current practice understates its own limits, and the understatement has consequences.</p>
+
+        <p>Serious red teaming for global deployment would require a few things the field does not yet consistently do. It would require threat models built in consultation with people embedded in the regions where the model will be used, not only in the city where it was trained. It would require red teams that include speakers of low-resource languages who can probe for harms specific to those linguistic and political contexts, not merely translators who can carry English prompts into other tongues. It would require public reporting that is honest about coverage: which contexts were tested, which were not, and what that implies for deployment.</p>
+
+        <p>And it would require accepting that a model red teamed intensively in English and lightly in fifty other languages is not a globally red teamed model. It is a well-tested model in one context and a poorly-tested model everywhere else.</p>
+
+        <h2>Red Teaming as a Question of Trust</h2>
+
+        <p>At its best, red teaming is an exercise in earning trust. A lab tells the world: we took our model seriously enough to attack it ourselves, and here is what we found.</p>
+
+        <p>That bargain is powerful. It is also directional. Trust is earned with whoever the red team was willing to imagine as a user, whose harms the red team was willing to take seriously, whose language the red team was willing to work in.</p>
+
+        <p>For communities inside that imagination, the bargain holds. The model was tested, roughly, for the kinds of failures that would matter to them. For communities outside it, the bargain is weaker. The model was tested, but the failures that would matter to them were not the ones the red team was trying to surface.</p>
+
+        <p>It is not a refusal of red teaming to point this out. It is a request that the practice grow up to match the scale of the deployments it is underwriting.</p>
+
+        <h2>Conclusion</h2>
+
+        <p>Red teaming is necessary. It is also, in its current form, culturally bounded in ways the field does not yet fully acknowledge.</p>
+
+        <p>The threat models are local. The teams are small and drawn from a narrow slice of the world. The coverage in non-Western languages and contexts is uneven, and uneven in predictable directions. The reports produced by this work carry weight they have not fully earned, because the scope of what was tested is not the scope of what the model will encounter.</p>
+
+        <p>The fix is not to abandon red teaming. It is to stop pretending that the current practice is adequate to the global systems it is now being used to validate.</p>
+
+        <p>If a model is being shipped to every country with an internet connection, then the adversaries imagined during its testing need to include more than the ones who look and speak like its builders. Until they do, the red team is guarding one door. The rest of the house is open.</p>
+
+        <p class="post-note">This piece is part of the Perspectives essay series on AI governance, language, and what global AI development actually demands in practice.</p>
+
+    </article>
+
+    <footer>
+        <div class="container">
+            <p>
+                Blessing Ngozi Uzor &nbsp;&middot;&nbsp;
+                <a href="https://github.com/Ngozi-uzor" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://linkedin.com/in/uzor-blessing-ngozi-2a97b01a7" target="_blank" rel="noopener">LinkedIn</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

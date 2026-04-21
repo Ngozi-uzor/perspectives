@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Language Translation — Blessing Ngozi Uzor</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .meta-chip {
+            background: var(--border);
+            color: var(--dark);
+            font-size: 0.78rem;
+            font-family: Arial, sans-serif;
+            padding: 0.3rem 0.75rem;
+            border-radius: 20px;
+            letter-spacing: 0.02em;
+        }
+
+        .meta-chip.accent {
+            background: var(--dark);
+            color: var(--cream);
+        }
+
+        .role-box {
+            border-left: 3px solid var(--accent);
+            padding: 1rem 1.25rem;
+            margin: 2rem 0;
+            background: rgba(139, 115, 85, 0.06);
+        }
+
+        .role-box p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        .role-box strong {
+            color: var(--accent);
+            font-family: Georgia, serif;
+        }
+
+        .pipeline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+        }
+
+        .pipeline-step {
+            background: var(--cream);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.85rem 1rem;
+            text-align: center;
+        }
+
+        .pipeline-step .step-label {
+            font-size: 0.68rem;
+            font-family: Arial, sans-serif;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .pipeline-step .step-value {
+            font-size: 0.88rem;
+            font-family: Georgia, serif;
+            color: var(--dark);
+        }
+
+        .results-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .result-stat {
+            background: var(--dark);
+            color: var(--cream);
+            border-radius: 6px;
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+        .result-stat .stat-number {
+            font-size: 2rem;
+            font-family: Georgia, serif;
+            display: block;
+            line-height: 1;
+        }
+
+        .result-stat .stat-label {
+            font-size: 0.75rem;
+            font-family: Arial, sans-serif;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            opacity: 0.75;
+            margin-top: 0.4rem;
+            display: block;
+        }
+
+        .slides-embed {
+            margin: 2.5rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .slides-embed embed {
+            width: 100%;
+            height: 520px;
+            display: block;
+        }
+
+        .slides-fallback {
+            text-align: center;
+            padding: 2rem;
+            font-family: Arial, sans-serif;
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        .btn-download {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.65rem 1.4rem;
+            background: var(--dark);
+            color: var(--cream);
+            font-family: Arial, sans-serif;
+            font-size: 0.82rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .btn-download:hover {
+            opacity: 0.85;
+        }
+
+        @media (max-width: 600px) {
+            .results-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="post-header">
+        <div class="container">
+            <a href="../index.html" class="back-link">&larr; Back to Perspectives</a>
+            <h1>Sign Language Translation</h1>
+            <p class="subtitle">A deep learning system that translates sign language gestures into text using hand landmark extraction and a Bidirectional LSTM.</p>
+        </div>
+    </header>
+
+    <article class="post-body">
+
+        <div class="project-meta">
+            <span class="meta-chip accent">Computer Vision</span>
+            <span class="meta-chip">Deep Learning</span>
+            <span class="meta-chip">MediaPipe</span>
+            <span class="meta-chip">Bi-LSTM</span>
+            <span class="meta-chip">AIMS Cameroon &middot; 2026</span>
+        </div>
+
+        <div class="role-box">
+            <p><strong>My role:</strong> Team Lead, Group 5. I led the overall project coordination and was directly responsible for the data preprocessing and augmentation pipeline. I also contributed to the model architecture decisions, particularly the choice of Bidirectional LSTM layers and the regularisation strategy.</p>
+        </div>
+
+        <h2>The Problem</h2>
+
+        <p>Deaf and hard-of-hearing communities face a persistent communication barrier. Human interpreters exist, but they are not always available or affordable. The goal of this project was to build a scalable, automated system that translates sign language gestures into text, requiring no interpreter in the loop.</p>
+
+        <p>We worked with the LSA64 dataset: 64 signs from Argentinian Sign Language, of which we used 20 classes. The challenge is a sequence modelling problem. A sign is not a static hand shape. It is a movement over time, and the system has to understand that temporal structure to classify correctly.</p>
+
+        <h2>Pipeline</h2>
+
+        <div class="pipeline-grid">
+            <div class="pipeline-step">
+                <span class="step-label">Input</span>
+                <span class="step-value">Raw video sequences</span>
+            </div>
+            <div class="pipeline-step">
+                <span class="step-label">Preprocessing</span>
+                <span class="step-value">30 frames extracted, BGR&rarr;RGB</span>
+            </div>
+            <div class="pipeline-step">
+                <span class="step-label">Feature Extraction</span>
+                <span class="step-value">MediaPipe: 21 landmarks &times; 2 hands &times; 3D</span>
+            </div>
+            <div class="pipeline-step">
+                <span class="step-label">Input Tensor</span>
+                <span class="step-value">126 features per frame</span>
+            </div>
+            <div class="pipeline-step">
+                <span class="step-label">Classification</span>
+                <span class="step-value">Stacked Bi-LSTM</span>
+            </div>
+            <div class="pipeline-step">
+                <span class="step-label">Output</span>
+                <span class="step-value">Predicted sign class</span>
+            </div>
+        </div>
+
+        <p>The key decision in feature extraction was to discard raw pixel data entirely. Instead of feeding image frames into the network, we used MediaPipe Hands to extract the skeletal geometry of the hands: 21 joint positions per hand, each with x, y, and z coordinates. Two hands gives 126 features per frame. This makes the model lightweight and invariant to lighting, background, and skin tone.</p>
+
+        <h2>Data Preprocessing and Augmentation</h2>
+
+        <p>This was my primary technical responsibility.</p>
+
+        <p>The dataset gave us 900 videos (45 per class across 20 classes). That is a modest size for a deep learning task. To improve generalisation, I implemented a two-step augmentation strategy that tripled the effective training set to 2,700 samples.</p>
+
+        <p>The first technique was jittering: adding small Gaussian noise (σ = 0.002) to the landmark coordinates. This simulates natural variation in hand tremor and imprecise gesture execution. The second was scaling: multiplying all coordinates by a uniform random factor between 0.98 and 1.02, simulating slight variation in the signer's distance from the camera.</p>
+
+        <p>Landmarks were normalised relative to the wrist joint, making the model robust to the position of the hand within the frame rather than its absolute screen location.</p>
+
+        <h2>Model Architecture</h2>
+
+        <p>The classifier is a stacked Bidirectional LSTM. The bidirectional structure is important: it lets the model attend to both past and future frames when classifying any given moment in the sequence. A unidirectional LSTM would only look back. Signs often have meaningful motion in both directions through time.</p>
+
+        <p>Architecture: Input (30 frames &times; 126 features) &rarr; Bi-LSTM (128 units, return sequences) &rarr; BatchNorm &rarr; Dropout(0.3) &rarr; Bi-LSTM (64 units) &rarr; BatchNorm &rarr; Dropout(0.3) &rarr; Dense(64, ReLU) &rarr; Softmax(20 classes).</p>
+
+        <p>Training used Adam (lr = 0.001), categorical crossentropy, up to 200 epochs with EarlyStopping (patience = 25) and ReduceLROnPlateau (patience = 10). The model was evaluated on a stratified 80/20 split.</p>
+
+        <h2>Results</h2>
+
+        <div class="results-row">
+            <div class="result-stat">
+                <span class="stat-number">96%</span>
+                <span class="stat-label">Overall Accuracy</span>
+            </div>
+            <div class="result-stat">
+                <span class="stat-number">0.97</span>
+                <span class="stat-label">Weighted F1-Score</span>
+            </div>
+            <div class="result-stat">
+                <span class="stat-number">0.98</span>
+                <span class="stat-label">Weighted Precision</span>
+            </div>
+        </div>
+
+        <p>The model achieved 96% accuracy on the held-out test set across 20 sign classes (540 test samples). Macro-averaged precision and recall were both 0.96 to 0.98, indicating consistent performance across all classes rather than a few dominant ones inflating the aggregate score.</p>
+
+        <h2>Full Slides</h2>
+
+        <div class="slides-embed">
+            <embed src="sign-language/sign-language-slides.pdf" type="application/pdf">
+            <div class="slides-fallback">
+                <p>PDF preview not supported in this browser.</p>
+                <a href="sign-language/sign-language-slides.pdf" class="btn-download" target="_blank" rel="noopener">Download Slides (PDF)</a>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: -1rem; margin-bottom: 2rem;">
+            <a href="sign-language/sign-language-slides.pdf" class="btn-download" target="_blank" rel="noopener">Download Full Slides &darr;</a>
+        </div>
+
+        <p class="post-note">Group 5, AIMS Cameroon &middot; Computer Vision Course &middot; February 2026. Built in collaboration with team members. My specific contributions: project leadership, data preprocessing, augmentation pipeline, and model architecture.</p>
+
+    </article>
+
+    <footer>
+        <div class="container">
+            <p>
+                Blessing Ngozi Uzor &nbsp;&middot;&nbsp;
+                <a href="https://github.com/Ngozi-uzor" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://linkedin.com/in/uzor-blessing-ngozi-2a97b01a7" target="_blank" rel="noopener">LinkedIn</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
